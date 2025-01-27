@@ -1,0 +1,6 @@
+pip install python-dotenv
+pip install google-generativeai
+pip install requests
+pip install selenium
+pip install webdriver-manager
+pip install instagrapi

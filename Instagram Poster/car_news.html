@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car News</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow: hidden;
+            background-color: black; /* Prevents any white from showing */
+        }
+
+        .background-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.classic.com/vehicles/4387f1029b04d47b38d07e7b5b35275bc9d51e83.jpg?auto=format&fit=crop&ar=16:9&w=3038');
+            background-size: cover;  /* Ensure it covers the entire screen */
+            background-position: center;
+            z-index: 1;  /* Behind other layers */
+            filter: blur(32px); /* Apply blur uniformly */
+        }
+
+        /* Layer 2: The car image with proper aspect ratio and fading top and bottom edges */
+        .car-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%; /* Adjust width to your preference */
+            height: auto; /* Maintain aspect ratio */
+            z-index: 2; /* Above the blurred background */
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%); /* Top and Bottom blur */
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%); /* For Safari compatibility */
+        }
+
+        /* Layer 3: Bottom Gradient Overlay */
+        .gradient-overlay-bottom {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, black, transparent);
+            z-index: 3; /* Above car image */
+        }
+
+        /* Layer 4: Top Gradient Overlay (Identical to the Bottom Gradient) */
+        .gradient-overlay-top {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 30%;
+            opacity: 0.5;
+            background: linear-gradient(to bottom, black, transparent);
+            z-index: 4; /* Above car image */
+        }
+
+        /* Layer 5: Text Overlay */
+        .text-overlay {
+            position: absolute;
+            bottom: 10%; /* Move the text lower */
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 48px; /* Larger text */
+            font-weight: bold;
+            z-index: 5; /* Topmost layer */
+            width: 90%;
+            padding: 0 10px;
+        }
+
+        h1 {
+            font-size: 50px; /* Larger size for the title */
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Layer 1: Full-screen Background Image (Blurred) -->
+    <div class="background-container"></div>
+
+    <!-- Layer 2: Car Image with Gradient Mask to Fade Top and Bottom Edges -->
+    <img class="car-image" src="https://images.classic.com/vehicles/4387f1029b04d47b38d07e7b5b35275bc9d51e83.jpg?auto=format&fit=crop&ar=16:9&w=3038" alt="Car Image">
+
+    <!-- Layer 3: Gradient Overlay at the Bottom -->
+    <div class="gradient-overlay-bottom"></div>
+
+    <!-- Layer 4: Gradient Overlay at the Top (Identical to Bottom) -->
+    <div class="gradient-overlay-top"></div>
+
+    <!-- Layer 5: Text Overlay -->
+    <div class="text-overlay">
+        <h1>A rally legend reborn for the road.</h1> <!-- Title of the news -->
+    </div>    
+
+</body>
+</html>
