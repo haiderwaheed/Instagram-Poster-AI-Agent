@@ -9,7 +9,8 @@ The Instagram Poster AI Agent will generate a topic, source an image related to 
 - Gemini is instructed to reply in a specified format, so that fields for the car name, image title, and caption can be easily extracted.
 - The extracted car name is sent to Bing Image Search which sources an image related to the given field, and returns a text URL. 
 - The car name, image title, and image URL are inserted into a pre made  ```template.html``` which contains placeholders for each of these fields. 
-- A properly formated HTML file is generated as ```car_news.html```. This generated HTML file is opened using WebDriver in a background window where it is screenshotted and saved as a .PNG image file. 
+- A properly formated HTML file is generated as ```car_news.html```. This generated HTML file is opened using WebDriver in a background window where it is screenshotted and saved as a .PNG image file to the `pics` folder.
+- ```car_news.html``` is overwritten each time the program is run. 
 - Instagrapi is used to log into an Instagram account and upload this image along with the previously generated caption. 
 
 Editing the Gemini prompt to replace car name, title, and caption with any other topic will provide the same results. 
